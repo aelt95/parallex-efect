@@ -7,7 +7,6 @@
   margin: 0;
   box-sizing: borde-box;
 }
-
 ::selection {
   background-color: #0b372dbb;
 }
@@ -116,8 +115,8 @@ main {
 .mountain-8 {
   position: absolute;
   z-index: 6;
-  width: 80rem;
-  top: calc(50% + 100px);
+  width: 90rem;
+  top: calc(50% + 150px);
   left: calc(50% - 200px);
 }
 .fog-5 {
@@ -165,7 +164,7 @@ main {
 .fog-4 {
   position: absolute;
   z-index: 11;
-  min-width: 100%;
+  min-width: 110%;
   top: calc(50% + 242px);
   left: calc(50% - 64px);
 }
@@ -243,16 +242,43 @@ main {
   top: calc(100% - 350px);
   left: 50%;
 }
-
+@media (max-width: 1240px) {
+  .fog-1 {
+    top: calc(100% - 250px);
+  }
+}
 @media (max-width: 1100px) {
   html {
     font-size: 50%;
   }
   .fog-1 {
-    top: calc(100% - 250px);
+    top: calc(100% - 180px);
   }
   .text {
     top: calc(50% - 100px);
+  }
+  .bg-img {
+    top: calc(50% - 100px);
+  }
+  .mountain-10 {
+    width: 90rem;
+    top: calc(50% + 120px);
+    left: calc(50% + 120px);
+  }
+  .mountain-8 {
+    width: 100rem;
+    top: calc(50% + 190px);
+  }
+  .mountain-4 {
+    width: 90rem;
+    top: calc(50% + 300px);
+  }
+  .mountain-5 {
+    top: calc(50% + 360px);
+  }
+  .mountain-2 {
+    width: 70rem;
+    top: calc(50% + 232px);
   }
 }
 @media (max-width: 700px) {
@@ -266,13 +292,29 @@ main {
     top: calc(50% - 80px);
   }
   .text h2 {
-    font-size: 7rem;
+    font-size: 6rem;
   }
   .text h1 {
-    font-size: 8rem;
+    font-size: 7rem;
+  }
+  .mountain-8 {
+    width: 100rem;
+    top: calc(50% + 240px);
+  }
+  .mountain-7 {
+    top: calc(50% + 220px);
+    left: calc(50% + 160px);
+  }
+  .mountain-5 {
+    left: calc(50% + 50px);
+    top: calc(50% + 370px);
   }
   .mountain-4 {
     left: calc(50% - 260px);
     top: calc(50% + 330px);
+  }
+  .mountain-2 {
+    left: calc(50% + 250px);
+    top: calc(50% + 280px);
   }
 }

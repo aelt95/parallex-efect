@@ -22,6 +22,8 @@ import mountain_1 from "./assets/mountain_1.png";
 import logo from "./assets/aelt-logo.png";
 import nature_sound from "./assets/nature-audio.wav";
 
+import { useEffect, useState } from "react";
+
 function App() {
   const imagesData = [
     {
@@ -133,30 +135,32 @@ function App() {
       class: "parallax fog-1",
     },
   ];
-  const parallax_el = document.querySelectorAll(".parallax");
-
+  const [parallaxEl, setParallaxEl] = useState([]);
   let xValue = 0,
     yValue = 0;
 
-  window.addEventListener("mousemove", (e) => {
+  useEffect(() => {}, []);
+
+  const handleMouseMove = (e) => {
+    setParallaxEl(document.querySelectorAll(".parallax"));
     xValue = e.clientX - innerWidth / 2;
     yValue = e.clientY - innerHeight / 2;
 
-    parallax_el.forEach((el) => {
+    Array.from(parallaxEl).map((el) => {
       let speedx = el.dataset.speedx;
       let speedy = el.dataset.speedy;
       el.style.transform = `translateX(calc(-50% + ${
         -xValue * speedx
       }px)) translateY(calc(-50% + ${yValue * speedy}px))`;
     });
-  });
+  };
 
   const handleSound = () => {
     new Audio(nature_sound).play();
   };
 
   return (
-    <main>
+    <main onMouseMove={handleMouseMove}>
       <header className="header">
         <nav>
           <div className="logo">
@@ -167,9 +171,10 @@ function App() {
           </button>
         </nav>
       </header>
-      {imagesData.map((element) => {
+      {imagesData.map((element, i) => {
         return (
           <img
+            key={i}
             src={element.src}
             className={element.class}
             data-speedx={element.speedX}
@@ -177,12 +182,12 @@ function App() {
           />
         );
       })}
-      <div class="text parallax" data-speedx="0.1" data-speedy="0.1">
+      <div className="text parallax" data-speedx="0.1" data-speedy="0.1">
         <h2>China</h2>
         <h1>Zhangjiajie</h1>
       </div>
-      <img src={sun_rays} class="sun-rays" />
-      <img src={black_shadow} class="black-shadow" />
+      <img src={sun_rays} className="sun-rays" />
+      <img src={black_shadow} className="black-shadow" />
     </main>
   );
 }
